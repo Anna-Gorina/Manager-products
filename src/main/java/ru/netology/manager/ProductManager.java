@@ -38,10 +38,11 @@ public class ProductManager {
                 return true;
             }
             return false;
-        }
-        Smartphone smartphone = (Smartphone) product;
-        if (smartphone.getCompany().contains(search) || smartphone.getName().contains(search)) {
-            return true;
+        } else if (product instanceof Smartphone) {
+            Smartphone smartphone = (Smartphone) product;
+            if (smartphone.getCompany().contains(search) || smartphone.getName().contains(search)) {
+                return true;
+            }
         }
         return false;
     }
